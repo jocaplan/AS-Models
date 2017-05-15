@@ -1,0 +1,977 @@
+{
+  "name": "NewSales",
+  "id": "NewSales",
+  "description": "Imported database from sql server 'jocaplanazure.database.windows.net' and database 'Sample1'",
+  "compatibilityLevel": 1200,
+  "model": {
+    "name": "NewSales",
+    "description": "A Tabular data model at the 1200 compatibility level.",
+    "defaultMode": "directQuery",
+    "culture": "en-US",
+    "dataSources": [
+      {
+        "name": "SqlServer jocaplanazure.database.windows.net Sample1",
+        "description": "A data source definition that uses explicit sql server credentials from connection string",
+        "connectionString": "Provider=SQLNCLI11;Server=tcp:jocaplanazure.database.windows.net;Initial Catalog=Sample1;Persist Security Info=False;User ID=demouser;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30",
+        "impersonationMode": "impersonateServiceAccount"
+      }
+    ],
+    "tables": [
+      {
+        "name": "UserOld",
+        "description": "All data from UserOld",
+        "columns": [
+          {
+            "name": "ID",
+            "dataType": "int64",
+            "isNullable": false,
+            "sourceColumn": "ID"
+          },
+          {
+            "name": "Name",
+            "dataType": "string",
+            "sourceColumn": "Name",
+            "displayOrdinal": 1
+          }
+        ],
+        "partitions": [
+          {
+            "name": "UserOld",
+            "source": {
+              "query": "SELECT [ID],[Name] FROM UserOld",
+              "dataSource": "SqlServer jocaplanazure.database.windows.net Sample1"
+            }
+          }
+        ]
+      },
+      {
+        "name": "User",
+        "description": "All data from User",
+        "columns": [
+          {
+            "name": "userID",
+            "dataType": "int64",
+            "sourceColumn": "userID"
+          },
+          {
+            "name": "tenantID",
+            "dataType": "int64",
+            "sourceColumn": "tenantID",
+            "displayOrdinal": 1
+          },
+          {
+            "name": "Name",
+            "dataType": "string",
+            "sourceColumn": "Name",
+            "displayOrdinal": 2
+          }
+        ],
+        "partitions": [
+          {
+            "name": "User",
+            "source": {
+              "query": "SELECT [userID],[tenantID],[Name] FROM User",
+              "dataSource": "SqlServer jocaplanazure.database.windows.net Sample1"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Product",
+        "description": "All data from SalesLT.Product",
+        "columns": [
+          {
+            "name": "ProductID",
+            "dataType": "int64",
+            "isNullable": false,
+            "sourceColumn": "ProductID"
+          },
+          {
+            "name": "Name",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "Name",
+            "displayOrdinal": 1
+          },
+          {
+            "name": "ProductNumber",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "ProductNumber",
+            "displayOrdinal": 2
+          },
+          {
+            "name": "Color",
+            "dataType": "string",
+            "sourceColumn": "Color",
+            "displayOrdinal": 3
+          },
+          {
+            "name": "StandardCost",
+            "dataType": "decimal",
+            "isNullable": false,
+            "sourceColumn": "StandardCost",
+            "displayOrdinal": 4
+          },
+          {
+            "name": "ListPrice",
+            "dataType": "decimal",
+            "isNullable": false,
+            "sourceColumn": "ListPrice",
+            "displayOrdinal": 5
+          },
+          {
+            "name": "Size",
+            "dataType": "string",
+            "sourceColumn": "Size",
+            "displayOrdinal": 6
+          },
+          {
+            "name": "Weight",
+            "dataType": "decimal",
+            "sourceColumn": "Weight",
+            "displayOrdinal": 7
+          },
+          {
+            "name": "ProductCategoryID",
+            "dataType": "int64",
+            "sourceColumn": "ProductCategoryID",
+            "displayOrdinal": 8
+          },
+          {
+            "name": "ProductModelID",
+            "dataType": "int64",
+            "sourceColumn": "ProductModelID",
+            "displayOrdinal": 9
+          },
+          {
+            "name": "SellStartDate",
+            "dataType": "dateTime",
+            "isNullable": false,
+            "sourceColumn": "SellStartDate",
+            "displayOrdinal": 10
+          },
+          {
+            "name": "SellEndDate",
+            "dataType": "dateTime",
+            "sourceColumn": "SellEndDate",
+            "displayOrdinal": 11
+          },
+          {
+            "name": "DiscontinuedDate",
+            "dataType": "dateTime",
+            "sourceColumn": "DiscontinuedDate",
+            "displayOrdinal": 12
+          },
+          {
+            "name": "ThumbNailPhoto",
+            "dataType": "binary",
+            "sourceColumn": "ThumbNailPhoto",
+            "displayOrdinal": 13
+          },
+          {
+            "name": "ThumbnailPhotoFileName",
+            "dataType": "string",
+            "sourceColumn": "ThumbnailPhotoFileName",
+            "displayOrdinal": 14
+          },
+          {
+            "name": "rowguid",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "rowguid",
+            "displayOrdinal": 15
+          },
+          {
+            "name": "ModifiedDate",
+            "dataType": "dateTime",
+            "isNullable": false,
+            "sourceColumn": "ModifiedDate",
+            "displayOrdinal": 16
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Product",
+            "source": {
+              "query": "SELECT [ProductID],[Name],[ProductNumber],[Color],[StandardCost],[ListPrice],[Size],[Weight],[ProductCategoryID],[ProductModelID],[SellStartDate],[SellEndDate],[DiscontinuedDate],[ThumbNailPhoto],[ThumbnailPhotoFileName],[rowguid],[ModifiedDate] FROM SalesLT.Product",
+              "dataSource": "SqlServer jocaplanazure.database.windows.net Sample1"
+            }
+          }
+        ]
+      },
+      {
+        "name": "ProductDescription",
+        "description": "All data from SalesLT.ProductDescription",
+        "columns": [
+          {
+            "name": "ProductDescriptionID",
+            "dataType": "int64",
+            "isNullable": false,
+            "sourceColumn": "ProductDescriptionID"
+          },
+          {
+            "name": "Description",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "Description",
+            "displayOrdinal": 1
+          },
+          {
+            "name": "rowguid",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "rowguid",
+            "displayOrdinal": 2
+          },
+          {
+            "name": "ModifiedDate",
+            "dataType": "dateTime",
+            "isNullable": false,
+            "sourceColumn": "ModifiedDate",
+            "displayOrdinal": 3
+          }
+        ],
+        "partitions": [
+          {
+            "name": "ProductDescription",
+            "source": {
+              "query": "SELECT [ProductDescriptionID],[Description],[rowguid],[ModifiedDate] FROM SalesLT.ProductDescription",
+              "dataSource": "SqlServer jocaplanazure.database.windows.net Sample1"
+            }
+          }
+        ]
+      },
+      {
+        "name": "ProductCategory",
+        "description": "All data from SalesLT.ProductCategory",
+        "columns": [
+          {
+            "name": "ProductCategoryID",
+            "dataType": "int64",
+            "isNullable": false,
+            "sourceColumn": "ProductCategoryID"
+          },
+          {
+            "name": "ParentProductCategoryID",
+            "dataType": "int64",
+            "sourceColumn": "ParentProductCategoryID",
+            "displayOrdinal": 1
+          },
+          {
+            "name": "Name",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "Name",
+            "displayOrdinal": 2
+          },
+          {
+            "name": "rowguid",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "rowguid",
+            "displayOrdinal": 3
+          },
+          {
+            "name": "ModifiedDate",
+            "dataType": "dateTime",
+            "isNullable": false,
+            "sourceColumn": "ModifiedDate",
+            "displayOrdinal": 4
+          }
+        ],
+        "partitions": [
+          {
+            "name": "ProductCategory",
+            "source": {
+              "query": "SELECT [ProductCategoryID],[ParentProductCategoryID],[Name],[rowguid],[ModifiedDate] FROM SalesLT.ProductCategory",
+              "dataSource": "SqlServer jocaplanazure.database.windows.net Sample1"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Address",
+        "description": "All data from SalesLT.Address",
+        "columns": [
+          {
+            "name": "AddressID",
+            "dataType": "int64",
+            "isNullable": false,
+            "sourceColumn": "AddressID"
+          },
+          {
+            "name": "AddressLine1",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "AddressLine1",
+            "displayOrdinal": 1
+          },
+          {
+            "name": "AddressLine2",
+            "dataType": "string",
+            "sourceColumn": "AddressLine2",
+            "displayOrdinal": 2
+          },
+          {
+            "name": "City",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "City",
+            "displayOrdinal": 3
+          },
+          {
+            "name": "StateProvince",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "StateProvince",
+            "displayOrdinal": 4
+          },
+          {
+            "name": "CountryRegion",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "CountryRegion",
+            "displayOrdinal": 5
+          },
+          {
+            "name": "PostalCode",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "PostalCode",
+            "displayOrdinal": 6
+          },
+          {
+            "name": "rowguid",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "rowguid",
+            "displayOrdinal": 7
+          },
+          {
+            "name": "ModifiedDate",
+            "dataType": "dateTime",
+            "isNullable": false,
+            "sourceColumn": "ModifiedDate",
+            "displayOrdinal": 8
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Address",
+            "source": {
+              "query": "SELECT [AddressID],[AddressLine1],[AddressLine2],[City],[StateProvince],[CountryRegion],[PostalCode],[rowguid],[ModifiedDate] FROM SalesLT.Address",
+              "dataSource": "SqlServer jocaplanazure.database.windows.net Sample1"
+            }
+          }
+        ]
+      },
+      {
+        "name": "SalesOrderHeader",
+        "description": "All data from SalesLT.SalesOrderHeader",
+        "columns": [
+          {
+            "name": "SalesOrderID",
+            "dataType": "int64",
+            "isNullable": false,
+            "sourceColumn": "SalesOrderID"
+          },
+          {
+            "name": "RevisionNumber",
+            "dataType": "int64",
+            "isNullable": false,
+            "sourceColumn": "RevisionNumber",
+            "displayOrdinal": 1
+          },
+          {
+            "name": "OrderDate",
+            "dataType": "dateTime",
+            "isNullable": false,
+            "sourceColumn": "OrderDate",
+            "displayOrdinal": 2
+          },
+          {
+            "name": "DueDate",
+            "dataType": "dateTime",
+            "isNullable": false,
+            "sourceColumn": "DueDate",
+            "displayOrdinal": 3
+          },
+          {
+            "name": "ShipDate",
+            "dataType": "dateTime",
+            "sourceColumn": "ShipDate",
+            "displayOrdinal": 4
+          },
+          {
+            "name": "Status",
+            "dataType": "int64",
+            "isNullable": false,
+            "sourceColumn": "Status",
+            "displayOrdinal": 5
+          },
+          {
+            "name": "OnlineOrderFlag",
+            "dataType": "boolean",
+            "isNullable": false,
+            "sourceColumn": "OnlineOrderFlag",
+            "displayOrdinal": 6
+          },
+          {
+            "name": "SalesOrderNumber",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "SalesOrderNumber",
+            "displayOrdinal": 7
+          },
+          {
+            "name": "PurchaseOrderNumber",
+            "dataType": "string",
+            "sourceColumn": "PurchaseOrderNumber",
+            "displayOrdinal": 8
+          },
+          {
+            "name": "AccountNumber",
+            "dataType": "string",
+            "sourceColumn": "AccountNumber",
+            "displayOrdinal": 9
+          },
+          {
+            "name": "CustomerID",
+            "dataType": "int64",
+            "isNullable": false,
+            "sourceColumn": "CustomerID",
+            "displayOrdinal": 10
+          },
+          {
+            "name": "ShipToAddressID",
+            "dataType": "int64",
+            "sourceColumn": "ShipToAddressID",
+            "displayOrdinal": 11
+          },
+          {
+            "name": "BillToAddressID",
+            "dataType": "int64",
+            "sourceColumn": "BillToAddressID",
+            "displayOrdinal": 12
+          },
+          {
+            "name": "ShipMethod",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "ShipMethod",
+            "displayOrdinal": 13
+          },
+          {
+            "name": "CreditCardApprovalCode",
+            "dataType": "string",
+            "sourceColumn": "CreditCardApprovalCode",
+            "displayOrdinal": 14
+          },
+          {
+            "name": "SubTotal",
+            "dataType": "decimal",
+            "isNullable": false,
+            "sourceColumn": "SubTotal",
+            "displayOrdinal": 15
+          },
+          {
+            "name": "TaxAmt",
+            "dataType": "decimal",
+            "isNullable": false,
+            "sourceColumn": "TaxAmt",
+            "displayOrdinal": 16
+          },
+          {
+            "name": "Freight",
+            "dataType": "decimal",
+            "isNullable": false,
+            "sourceColumn": "Freight",
+            "displayOrdinal": 17
+          },
+          {
+            "name": "TotalDue",
+            "dataType": "decimal",
+            "isNullable": false,
+            "sourceColumn": "TotalDue",
+            "displayOrdinal": 18
+          },
+          {
+            "name": "Comment",
+            "dataType": "string",
+            "sourceColumn": "Comment",
+            "displayOrdinal": 19
+          },
+          {
+            "name": "rowguid",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "rowguid",
+            "displayOrdinal": 20
+          },
+          {
+            "name": "ModifiedDate",
+            "dataType": "dateTime",
+            "isNullable": false,
+            "sourceColumn": "ModifiedDate",
+            "displayOrdinal": 21
+          },
+          {
+            "name": "tenantID",
+            "dataType": "int64",
+            "sourceColumn": "tenantID",
+            "displayOrdinal": 22
+          }
+        ],
+        "partitions": [
+          {
+            "name": "SalesOrderHeader",
+            "source": {
+              "query": "SELECT [SalesOrderID],[RevisionNumber],[OrderDate],[DueDate],[ShipDate],[Status],[OnlineOrderFlag],[SalesOrderNumber],[PurchaseOrderNumber],[AccountNumber],[CustomerID],[ShipToAddressID],[BillToAddressID],[ShipMethod],[CreditCardApprovalCode],[SubTotal],[TaxAmt],[Freight],[TotalDue],[Comment],[rowguid],[ModifiedDate],[tenantID] FROM SalesLT.SalesOrderHeader",
+              "dataSource": "SqlServer jocaplanazure.database.windows.net Sample1"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Customer",
+        "description": "All data from SalesLT.Customer",
+        "columns": [
+          {
+            "name": "CustomerID",
+            "dataType": "int64",
+            "isNullable": false,
+            "sourceColumn": "CustomerID"
+          },
+          {
+            "name": "NameStyle",
+            "dataType": "boolean",
+            "isNullable": false,
+            "sourceColumn": "NameStyle",
+            "displayOrdinal": 1
+          },
+          {
+            "name": "Title",
+            "dataType": "string",
+            "sourceColumn": "Title",
+            "displayOrdinal": 2
+          },
+          {
+            "name": "FirstName",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "FirstName",
+            "displayOrdinal": 3
+          },
+          {
+            "name": "MiddleName",
+            "dataType": "string",
+            "sourceColumn": "MiddleName",
+            "displayOrdinal": 4
+          },
+          {
+            "name": "LastName",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "LastName",
+            "displayOrdinal": 5
+          },
+          {
+            "name": "Suffix",
+            "dataType": "string",
+            "sourceColumn": "Suffix",
+            "displayOrdinal": 6
+          },
+          {
+            "name": "CompanyName",
+            "dataType": "string",
+            "sourceColumn": "CompanyName",
+            "displayOrdinal": 7
+          },
+          {
+            "name": "SalesPerson",
+            "dataType": "string",
+            "sourceColumn": "SalesPerson",
+            "displayOrdinal": 8
+          },
+          {
+            "name": "EmailAddress",
+            "dataType": "string",
+            "sourceColumn": "EmailAddress",
+            "displayOrdinal": 9
+          },
+          {
+            "name": "Phone",
+            "dataType": "string",
+            "sourceColumn": "Phone",
+            "displayOrdinal": 10
+          },
+          {
+            "name": "PasswordHash",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "PasswordHash",
+            "displayOrdinal": 11
+          },
+          {
+            "name": "PasswordSalt",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "PasswordSalt",
+            "displayOrdinal": 12
+          },
+          {
+            "name": "rowguid",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "rowguid",
+            "displayOrdinal": 13
+          },
+          {
+            "name": "ModifiedDate",
+            "dataType": "dateTime",
+            "isNullable": false,
+            "sourceColumn": "ModifiedDate",
+            "displayOrdinal": 14
+          },
+          {
+            "name": "companyId",
+            "dataType": "int64",
+            "sourceColumn": "companyId",
+            "displayOrdinal": 15
+          },
+          {
+            "name": "SalesPersonID",
+            "dataType": "int64",
+            "sourceColumn": "SalesPersonID",
+            "displayOrdinal": 16
+          },
+          {
+            "name": "tenantID",
+            "dataType": "int64",
+            "sourceColumn": "tenantID",
+            "displayOrdinal": 17
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Customer",
+            "source": {
+              "query": "SELECT [CustomerID],[NameStyle],[Title],[FirstName],[MiddleName],[LastName],[Suffix],[CompanyName],[SalesPerson],[EmailAddress],[Phone],[PasswordHash],[PasswordSalt],[rowguid],[ModifiedDate],[companyId],[SalesPersonID],[tenantID] FROM SalesLT.Customer",
+              "dataSource": "SqlServer jocaplanazure.database.windows.net Sample1"
+            }
+          }
+        ]
+      },
+      {
+        "name": "SalesOrderDetail",
+        "description": "All data from SalesLT.SalesOrderDetail",
+        "columns": [
+          {
+            "name": "SalesOrderID",
+            "dataType": "int64",
+            "isNullable": false,
+            "sourceColumn": "SalesOrderID"
+          },
+          {
+            "name": "SalesOrderDetailID",
+            "dataType": "int64",
+            "isNullable": false,
+            "sourceColumn": "SalesOrderDetailID",
+            "displayOrdinal": 1
+          },
+          {
+            "name": "OrderQty",
+            "dataType": "int64",
+            "isNullable": false,
+            "sourceColumn": "OrderQty",
+            "displayOrdinal": 2
+          },
+          {
+            "name": "ProductID",
+            "dataType": "int64",
+            "isNullable": false,
+            "sourceColumn": "ProductID",
+            "displayOrdinal": 3
+          },
+          {
+            "name": "UnitPrice",
+            "dataType": "decimal",
+            "isNullable": false,
+            "sourceColumn": "UnitPrice",
+            "displayOrdinal": 4
+          },
+          {
+            "name": "UnitPriceDiscount",
+            "dataType": "decimal",
+            "isNullable": false,
+            "sourceColumn": "UnitPriceDiscount",
+            "displayOrdinal": 5
+          },
+          {
+            "name": "LineTotal",
+            "dataType": "decimal",
+            "isNullable": false,
+            "sourceColumn": "LineTotal",
+            "displayOrdinal": 6
+          },
+          {
+            "name": "rowguid",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "rowguid",
+            "displayOrdinal": 7
+          },
+          {
+            "name": "ModifiedDate",
+            "dataType": "dateTime",
+            "isNullable": false,
+            "sourceColumn": "ModifiedDate",
+            "displayOrdinal": 8
+          }
+        ],
+        "partitions": [
+          {
+            "name": "SalesOrderDetail",
+            "source": {
+              "query": "SELECT [SalesOrderID],[SalesOrderDetailID],[OrderQty],[ProductID],[UnitPrice],[UnitPriceDiscount],[LineTotal],[rowguid],[ModifiedDate] FROM SalesLT.SalesOrderDetail",
+              "dataSource": "SqlServer jocaplanazure.database.windows.net Sample1"
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Order Quantity",
+            "expression": "SUM('SalesOrderDetail'[OrderQty])"
+          }
+        ]
+      },
+      {
+        "name": "ProductModel",
+        "description": "All data from SalesLT.ProductModel",
+        "columns": [
+          {
+            "name": "ProductModelID",
+            "dataType": "int64",
+            "isNullable": false,
+            "sourceColumn": "ProductModelID"
+          },
+          {
+            "name": "Name",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "Name",
+            "displayOrdinal": 1
+          },
+          {
+            "name": "CatalogDescription",
+            "dataType": "string",
+            "sourceColumn": "CatalogDescription",
+            "displayOrdinal": 2
+          },
+          {
+            "name": "rowguid",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "rowguid",
+            "displayOrdinal": 3
+          },
+          {
+            "name": "ModifiedDate",
+            "dataType": "dateTime",
+            "isNullable": false,
+            "sourceColumn": "ModifiedDate",
+            "displayOrdinal": 4
+          }
+        ],
+        "partitions": [
+          {
+            "name": "ProductModel",
+            "source": {
+              "query": "SELECT [ProductModelID],[Name],[CatalogDescription],[rowguid],[ModifiedDate] FROM SalesLT.ProductModel",
+              "dataSource": "SqlServer jocaplanazure.database.windows.net Sample1"
+            }
+          }
+        ]
+      },
+      {
+        "name": "ProductModelProductDescription",
+        "description": "All data from SalesLT.ProductModelProductDescription",
+        "columns": [
+          {
+            "name": "ProductModelID",
+            "dataType": "int64",
+            "isNullable": false,
+            "sourceColumn": "ProductModelID"
+          },
+          {
+            "name": "ProductDescriptionID",
+            "dataType": "int64",
+            "isNullable": false,
+            "sourceColumn": "ProductDescriptionID",
+            "displayOrdinal": 1
+          },
+          {
+            "name": "Culture",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "Culture",
+            "displayOrdinal": 2
+          },
+          {
+            "name": "rowguid",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "rowguid",
+            "displayOrdinal": 3
+          },
+          {
+            "name": "ModifiedDate",
+            "dataType": "dateTime",
+            "isNullable": false,
+            "sourceColumn": "ModifiedDate",
+            "displayOrdinal": 4
+          }
+        ],
+        "partitions": [
+          {
+            "name": "ProductModelProductDescription",
+            "source": {
+              "query": "SELECT [ProductModelID],[ProductDescriptionID],[Culture],[rowguid],[ModifiedDate] FROM SalesLT.ProductModelProductDescription",
+              "dataSource": "SqlServer jocaplanazure.database.windows.net Sample1"
+            }
+          }
+        ]
+      },
+      {
+        "name": "CustomerAddress",
+        "description": "All data from SalesLT.CustomerAddress",
+        "columns": [
+          {
+            "name": "CustomerID",
+            "dataType": "int64",
+            "isNullable": false,
+            "sourceColumn": "CustomerID"
+          },
+          {
+            "name": "AddressID",
+            "dataType": "int64",
+            "isNullable": false,
+            "sourceColumn": "AddressID",
+            "displayOrdinal": 1
+          },
+          {
+            "name": "AddressType",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "AddressType",
+            "displayOrdinal": 2
+          },
+          {
+            "name": "rowguid",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "rowguid",
+            "displayOrdinal": 3
+          },
+          {
+            "name": "ModifiedDate",
+            "dataType": "dateTime",
+            "isNullable": false,
+            "sourceColumn": "ModifiedDate",
+            "displayOrdinal": 4
+          }
+        ],
+        "partitions": [
+          {
+            "name": "CustomerAddress",
+            "source": {
+              "query": "SELECT [CustomerID],[AddressID],[AddressType],[rowguid],[ModifiedDate] FROM SalesLT.CustomerAddress",
+              "dataSource": "SqlServer jocaplanazure.database.windows.net Sample1"
+            }
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "3362082b-6b2e-4fae-a7cc-3a14c6614c0e",
+        "fromTable": "CustomerAddress",
+        "fromColumn": "AddressID",
+        "toTable": "Address",
+        "toColumn": "AddressID"
+      },
+      {
+        "name": "2f1f90de-c398-429f-91fc-a47294d0e893",
+        "fromTable": "CustomerAddress",
+        "fromColumn": "CustomerID",
+        "toTable": "Customer",
+        "toColumn": "CustomerID"
+      },
+      {
+        "name": "b1489ca1-8a2e-417b-bf2a-fadced0289f5",
+        "fromTable": "Product",
+        "fromColumn": "ProductCategoryID",
+        "toTable": "ProductCategory",
+        "toColumn": "ProductCategoryID"
+      },
+      {
+        "name": "17a1f6e2-2a0a-46dc-a05c-9b22a5aa3546",
+        "fromTable": "Product",
+        "fromColumn": "ProductModelID",
+        "toTable": "ProductModel",
+        "toColumn": "ProductModelID"
+      },
+      {
+        "name": "160e7de9-246c-48a8-bf86-8744d7592b3b",
+        "fromTable": "ProductModelProductDescription",
+        "fromColumn": "ProductDescriptionID",
+        "toTable": "ProductDescription",
+        "toColumn": "ProductDescriptionID"
+      },
+      {
+        "name": "607ca6ce-ef95-41cc-8892-f8b4894a8d7e",
+        "fromTable": "ProductModelProductDescription",
+        "fromColumn": "ProductModelID",
+        "toTable": "ProductModel",
+        "toColumn": "ProductModelID"
+      },
+      {
+        "name": "8f868bea-bbe8-47f2-b379-e2022b1bd335",
+        "fromTable": "SalesOrderDetail",
+        "fromColumn": "ProductID",
+        "toTable": "Product",
+        "toColumn": "ProductID"
+      },
+      {
+        "name": "e53f7398-52d0-4cce-903f-3ff0f55b6892",
+        "fromTable": "SalesOrderDetail",
+        "fromColumn": "SalesOrderID",
+        "toTable": "SalesOrderHeader",
+        "toColumn": "SalesOrderID"
+      },
+      {
+        "name": "c0badb0b-f174-499d-93ed-b6e2b6ef343d",
+        "fromTable": "SalesOrderHeader",
+        "fromColumn": "BillToAddressID",
+        "toTable": "Address",
+        "toColumn": "AddressID"
+      },
+      {
+        "name": "3c059622-d27f-48da-9ec3-bd1665854e53",
+        "fromTable": "SalesOrderHeader",
+        "fromColumn": "ShipToAddressID",
+        "toTable": "Address",
+        "toColumn": "AddressID",
+        "isActive": false
+      },
+      {
+        "name": "9f74ca3f-06f9-47f9-acd8-05193d4a3709",
+        "fromTable": "SalesOrderHeader",
+        "fromColumn": "CustomerID",
+        "toTable": "Customer",
+        "toColumn": "CustomerID"
+      }
+    ]
+  }
+}
